@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ward 6 Complaint Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with Language Toggle -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1 id="mainTitle">Ward No. 6 Complaint Portal</h1>
+                    <p id="mainSubtitle">File and Track Your Complaints</p>
+                </div>
+                <button id="languageToggle" class="lang-toggle">हिन्दी</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home" id="navHome" class="nav-link active">Home</a></li>
+                <li><a href="#file-complaint" id="navFileComplaint" class="nav-link">File Complaint</a></li>
+                <li><a href="#track-complaint" id="navTrackComplaint" class="nav-link">Track Complaint</a></li>
+                <li><a href="#statistics" id="navStatistics" class="nav-link">Statistics</a></li>
+                <li><a href="#contact" id="navContact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Home Section -->
+            <section id="home" class="section">
+                <div class="welcome-box">
+                    <h2 id="welcomeTitle">Welcome to Ward 6 Complaint Management System</h2>
+                    <p id="welcomeText">
+                        This portal allows residents of Ward No. 6 to file complaints regarding civic issues and track their resolution status in real-time.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📝</div>
+                            <h3 id="featureFileTitle">Easy Filing</h3>
+                            <p id="featureFileText">Submit complaints quickly and easily</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3 id="featureTrackTitle">Track Status</h3>
+                            <p id="featureTrackText">Monitor complaint resolution in real-time</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔔</div>
+                            <h3 id="featureNotifyTitle">Notifications</h3>
+                            <p id="featureNotifyText">Get updates via email and SMS</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3 id="featureCommunityTitle">Community</h3>
+                            <p id="featureCommunityText">Join thousands of residents</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- File Complaint Section -->
+            <section id="file-complaint" class="section">
+                <div class="form-container">
+                    <h2 id="fileComplaintTitle">File a New Complaint</h2>
+                    <form id="complaintForm" class="complaint-form">
+                        <div class="form-group">
+                            <label for="complaintName" id="labelName">Your Name *</label>
+                            <input type="text" id="complaintName" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaintEmail" id="labelEmail">Email Address *</label>
+                            <input type="email" id="complaintEmail" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaintPhone" id="labelPhone">Phone Number *</label>
+                            <input type="tel" id="complaintPhone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaintCategory" id="labelCategory">Category *</label>
+                            <select id="complaintCategory" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="road">Road and Infrastructure</option>
+                                <option value="water">Water Supply</option>
+                                <option value="electricity">Electricity</option>
+                                <option value="sanitation">Sanitation</option>
+                                <option value="traffic">Traffic and Safety</option>
+                                <option value="noise">Noise Pollution</option>
+                                <option value="public-space">Public Space Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaintLocation" id="labelLocation">Location Details *</label>
+                            <input type="text" id="complaintLocation" name="location" placeholder="Street name, landmark, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaintDescription" id="labelDescription">Complaint Description *</label>
+                            <textarea id="complaintDescription" name="description" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaintImage" id="labelImage">Attach Photo (Optional)</label>
+                            <input type="file" id="complaintImage" name="image" accept="image/*">
+                            <small id="imageHint">Maximum file size: 5MB</small>
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="agreeTerms" name="agree" required>
+                            <label for="agreeTerms" id="labelAgree">I agree to the terms and conditions *</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Complaint</button>
+                        <button type="reset" class="btn btn-secondary" id="resetBtn">Clear Form</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Track Complaint Section -->
+            <section id="track-complaint" class="section">
+                <div class="track-container">
+                    <h2 id="trackComplaintTitle">Track Your Complaint</h2>
+                    <div class="track-search">
+                        <input type="text" id="trackingId" placeholder="Enter Complaint ID (e.g., WRD-2024-001)" class="track-input">
+                        <button class="btn btn-primary" id="trackBtn">Search</button>
+                    </div>
+                    <div id="trackingResult" class="tracking-result" style="display: none;">
+                        <div class="complaint-details">
+                            <h3 id="trackingComplaintId"></h3>
+                            <div class="status-timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-marker completed"></div>
+                                    <div class="timeline-content">
+                                        <h4 id="timelineSubmitted">Submitted</h4>
+                                        <p id="timelineSubmittedDate"></p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker" id="underReviewMarker"></div>
+                                    <div class="timeline-content">
+                                        <h4 id="timelineUnderReview">Under Review</h4>
+                                        <p id="timelineUnderReviewDate"></p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker" id="inProgressMarker"></div>
+                                    <div class="timeline-content">
+                                        <h4 id="timelineInProgress">In Progress</h4>
+                                        <p id="timelineInProgressDate"></p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker" id="resolvedMarker"></div>
+                                    <div class="timeline-content">
+                                        <h4 id="timelineResolved">Resolved</h4>
+                                        <p id="timelineResolvedDate"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="complaint-info">
+                                <p><strong id="infoCategory">Category:</strong> <span id="infoCategoryValue"></span></p>
+                                <p><strong id="infoLocation">Location:</strong> <span id="infoLocationValue"></span></p>
+                                <p><strong id="infoStatus">Current Status:</strong> <span id="infoStatusValue" class="status-badge"></span></p>
+                                <p><strong id="infoAssigned">Assigned To:</strong> <span id="infoAssignedValue"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="trackingError" class="alert alert-error" style="display: none;"></div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section id="statistics" class="section">
+                <h2 id="statisticsTitle">Ward Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="statTotal">245</div>
+                        <div class="stat-label" id="statTotalLabel">Total Complaints</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statResolved">189</div>
+                        <div class="stat-label" id="statResolvedLabel">Resolved</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statPending">42</div>
+                        <div class="stat-label" id="statPendingLabel">Pending</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statAvgDays">5.2</div>
+                        <div class="stat-label" id="statAvgDaysLabel">Avg. Days to Resolve</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3 id="chartsTitle">Complaint Categories</h3>
+                    <canvas id="complaintChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2 id="contactTitle">Contact Information</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3 id="contactWardHead">Ward Head Office</h3>
+                        <p id="contactWardHeadPhone">📞 +91-XXXXXXXXXX</p>
+                        <p id="contactWardHeadEmail">📧 wardhead@example.com</p>
+                        <p id="contactWardHeadAddress">📍 Ward No. 6 Office, City</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3 id="contactUrgent">Urgent Issues</h3>
+                        <p id="contactEmergencyPhone">📞 Toll-free: 1800-XXX-XXXX</p>
+                        <p id="contactHours">⏰ Available 24/7</p>
+                        <p id="contactEmailSupport">📧 emergency@example.com</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p id="footerText">&copy; 2024 Ward No. 6 Administration. All rights reserved.</p>
+            <p id="footerPrivacy"><a href="#" id="privacyLink">Privacy Policy</a> | <a href="#" id="termsLink">Terms & Conditions</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
